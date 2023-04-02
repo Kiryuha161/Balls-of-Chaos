@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,11 +23,14 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = blue.isSolved && red.isSolved && orange.isSolved && green.isSolved;
 
-        if(isGameOver)
+        if (isGameOver)
         {
             gameOverText.gameObject.SetActive(true);
         }
     }
 
-  
+    public void Restart(int scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
 }
